@@ -1,5 +1,6 @@
 \documentclass[twocolumn]{article}
 
+\usepackage{amsmath}
 \usepackage[utf8]{inputenc}
 
 \begin{document}
@@ -7,7 +8,30 @@
   \author{Robin Pedersen}
   \maketitle
 
-  Vent a... Kom på at ingen trykne og skrevne hjelpemidler er tillatt... nvm.
+  Vent a... ingen trykne og skrevne hjelpemidler er tillatt.
+
+  \section{Formler (Noen få)}
+    Fourier Integral (FI)
+    $$\mathcal{F}[v(t)] = V(\omega)
+      = \int_{-\infty}^\infty v(t) e^{-j\omega t} dt
+      $$
+
+    Fourier Serie (FS)
+    $$v(t) = dc
+             + \Sigma_{n=1}^{\infty} a_n \cos(n\omega_0 t)
+                                     + b_n \sin(n\omega_0 t)
+      $$
+    $$a_n = \frac{2}{T} \int_0^T v(t) \cdot \cos(n\omega_0 t) dt$$
+    $$b_n = \text{lik an, men med sin}$$
+
+    Laplace Transformasjon
+    $$\mathcal{L}[v(t)] = V(s)
+      = \int_{0^-}^\infty v(t) e^{-st} dt
+      $$
+
+    Rampe
+    $$\mathcal{L}[t \cdot v(t)] = V'(s)$$
+    $$\mathcal{L}[at \cdot u(t)] = -aU'(s)$$
 
   \section{OpAmp}
     $$V_{out} = A_{OL} \cdot (V_+ - V_-)$$
@@ -25,6 +49,20 @@
   \section{Mantra}
     \begin{enumerate}
       \item Sett inn i definisjonen
+      \item Sett opp strømligningene
       \item TODO
     \end{enumerate}
+
+  \section{Signaltype vs Regnemetode}
+    \begin{tabular}{|l|l|}
+      \hline
+      Signal    & Metode \\
+      \hline
+      Periodisk & FS \\
+      Puls      & FI eller Laplace \\
+      $u(t)$    & Laplace \\
+      Rampe     & Laplace \\
+      Exp       & Laplace \\
+      \hline
+    \end{tabular}
 \end{document}
